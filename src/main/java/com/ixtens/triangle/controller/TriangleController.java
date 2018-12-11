@@ -2,7 +2,6 @@ package com.ixtens.triangle.controller;
 
 import com.ixtens.triangle.dto.TriangleRequestDto;
 import com.ixtens.triangle.dto.TriangleResponseDto;
-import com.ixtens.triangle.mapper.TriangleDtoToTriangleConverter;
 import com.ixtens.triangle.model.TriangleType;
 import com.ixtens.triangle.service.TriangleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +24,7 @@ public class TriangleController {
 
     @PostMapping("getTypeOfTriangle")
     public TriangleResponseDto getTypeOfTriangle(@RequestBody @Validated TriangleRequestDto triangleRequestDto) {
-        TriangleType typeOfTriangle = triangleService.getTypeOfTriangle(
-                TriangleDtoToTriangleConverter.convertTriangleFromDto(triangleRequestDto));
+        TriangleType typeOfTriangle = triangleService.getTypeOfTriangle(triangleRequestDto);
         return new TriangleResponseDto(typeOfTriangle);
     }
 }

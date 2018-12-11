@@ -17,11 +17,11 @@ public class TriangleValidationServiceTest {
 
     @Test
     public void trianglePossibleTest() {
-        triangleValidationService.validateTriangleExist(TriangleTestUtils.createTriangleIsoscales());
+        triangleValidationService.validateTriangleExist(TriangleTestUtils.createRightTriangleDto());
     }
 
     @Test(expected = IllegalTriangleException.class)
     public void triangleImpossibleTest() {
-        triangleValidationService.validateTriangleExist(TriangleTestUtils.createImpossibleTriangle());
+        triangleValidationService.validateTriangleExist(TriangleTestUtils.createImpossibleDtoTriangle());
     }
 }

@@ -32,7 +32,7 @@ public class TriangleControllerIntegrationTest {
     public void testCorrectTriangle() {
         String url = String.format(METHOD_URL, port);
         ResponseEntity<TriangleResponseDto> triangleTypeResponseEntity =
-                restTemplate.postForEntity(url, TriangleTestUtils.createRightTriandleDto(), TriangleResponseDto.class);
+                restTemplate.postForEntity(url, TriangleTestUtils.createRightTriangleDto(), TriangleResponseDto.class);
         Assert.assertEquals(triangleTypeResponseEntity.getStatusCode(), HttpStatus.OK);
         Assert.assertEquals(Objects.requireNonNull(triangleTypeResponseEntity.getBody()).getTriangleType(), TriangleType.EQUILATERAL);
     }
@@ -41,7 +41,7 @@ public class TriangleControllerIntegrationTest {
     public void testIncorrectTriangle() {
         String url = String.format(METHOD_URL, port);
         ResponseEntity<TriangleResponseDto> triangleTypeResponseEntity =
-                restTemplate.postForEntity(url, TriangleTestUtils.createWrongTriandleDto(), TriangleResponseDto.class);
+                restTemplate.postForEntity(url, TriangleTestUtils.createWrongTriangleDto(), TriangleResponseDto.class);
         Assert.assertEquals(triangleTypeResponseEntity.getStatusCode(), HttpStatus.BAD_REQUEST);
     }
 }
